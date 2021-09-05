@@ -1,13 +1,15 @@
 let options = ["Rock", "Paper", "Scissors"];
 
-
 //testing out 
+//new change
 
 function computerPlay() {
     let randomWord = options[Math.floor(Math.random() * options.length)];
 
     return randomWord;
 }
+
+//method
 function playersChoice() {
     let playerChoice = prompt("Enter your choice player");
 
