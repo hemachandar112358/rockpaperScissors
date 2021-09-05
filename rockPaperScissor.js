@@ -1,6 +1,7 @@
 let options = ["Rock", "Paper", "Scissors"];
 
 //testing out 
+//new change
 
 function computerPlay() {
     let randomWord = options[Math.floor(Math.random() * options.length)];
