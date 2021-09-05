@@ -8,6 +8,8 @@ function computerPlay() {
 
     return randomWord;
 }
+
+//method
 function playersChoice() {
     let playerChoice = prompt("Enter your choice player");
 
