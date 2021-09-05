@@ -25,6 +25,7 @@ function playersChoice() {
     return playerChoice;
 }
 
+//branch1
 let playerScore = 0;
 let computerScore = 0;
 
