@@ -51,7 +51,6 @@ function playRound() {
 
 }
 
-//checking for merge conflict errors.
 
 function game() {
 
