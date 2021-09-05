@@ -1,28 +1,33 @@
 let options = ["Rock", "Paper", "Scissors"];
 
-//testing out 
+//testing out
 //new change
 
 function computerPlay() {
-    let randomWord = options[Math.floor(Math.random() * options.length)];
+  let randomWord = options[Math.floor(Math.random() * options.length)];
 
-    return randomWord;
+  return randomWord;
 }
 
 //method
 function playersChoice() {
-    let playerChoice = prompt("Enter your choice player");
+  let playerChoice = prompt("Enter your choice player");
 
-    while (true) {
-        if (playerChoice.toLowerCase() == "rock" || playerChoice.toLowerCase() == "paper" || playerChoice.toLowerCase() == "scissors") {
-            break;
-        }
-        else { playerChoice = prompt("Enter your choice, your previous choice not valid"); }
-
-
+  while (true) {
+    if (
+      playerChoice.toLowerCase() == "rock" ||
+      playerChoice.toLowerCase() == "paper" ||
+      playerChoice.toLowerCase() == "scissors"
+    ) {
+      break;
+    } else {
+      playerChoice = prompt(
+        "Enter your choice, your previous choice not valid"
+      );
     }
+  }
 
-    return playerChoice;
+  return playerChoice;
 }
 
 //branch1
@@ -30,47 +35,42 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound() {
+  let result = "";
+  let playerchoice = playersChoice().toLowerCase();
+  let computerchoice = computerPlay().toLowerCase();
 
-    let result = "";
-    let playerchoice = playersChoice().toLowerCase();
-    let computerchoice = computerPlay().toLowerCase();
-
-    if (playerchoice === computerchoice) {
-        result = "No one Wins. It is a draw"
-    }
-    else if ((playerchoice == "scissors" && computerchoice == "paper") || (playerchoice == "paper" && computerchoice == "rock") ||
-        (playerchoice == "rock" && computerchoice == "scissors")) {
-        result = "You Win!!! " + playerchoice + " beats " + computerchoice;
-        playerScore++;
-    }
-    else {
-        result = " You Lose!" + computerchoice + " beats " + playerchoice;
-        computerScore++;
-    }
-    return result;
-
+  if (playerchoice === computerchoice) {
+    result = "No one Wins. It is a draw";
+  } else if (
+    (playerchoice == "scissors" && computerchoice == "paper") ||
+    (playerchoice == "paper" && computerchoice == "rock") ||
+    (playerchoice == "rock" && computerchoice == "scissors")
+  ) {
+    result = "You Win!!! " + playerchoice + " beats " + computerchoice;
+    playerScore++;
+  } else {
+    result = " You Lose!" + computerchoice + " beats " + playerchoice;
+    computerScore++;
+  }
+  return result;
 }
 
-
+//git gui
 function game() {
+  let finalresult = "";
+  for (i = 0; i < 5; i++) {
+    playRound();
+  }
 
-    let finalresult = "";
-    for (i = 0; i < 5; i++) {
-        playRound();
+  if (playerScore > computerScore) {
+    finalresult = "You won!!";
+  } else if (playerScore < computerScore) {
+    finalresult = "You lose!!";
+  } else {
+    finalresult = "Draw";
+  }
 
-    }
-
-    if (playerScore > computerScore) {
-        finalresult = "You won!!";
-    }
-    else if (playerScore < computerScore) {
-        finalresult = "You lose!!";
-    }
-    else {
-        finalresult = "Draw";
-    }
-
-    return finalresult;
+  return finalresult;
 }
 
 console.log(game());
